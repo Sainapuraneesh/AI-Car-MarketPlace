@@ -2,7 +2,7 @@
 const nextConfig = {
   experimental: {  //while adding images if u want to cache these images in next.js app,then add this experimental part inside nextConfig
     serverComponentsHmrCache: false, // defaults to true
-    suppressHydrationWarning: true,  // 👈 added this
+    //suppressHydrationWarning: true,  // 👈 added this
   },
   images: {
     remotePatterns: [

@@ -2,6 +2,8 @@ import arcjet, { createMiddleware, detectBot, shield } from "@arcjet/next";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
 
+console.log("ARCJET_KEY:", process.env.ARCJET_KEY ?? "NOT SET");
+
 const isProtectedRoute = createRouteMatcher([
   "/admin(.*)",
   "/saved-cars(.*)",
@@ -18,8 +20,7 @@ const aj = arcjet({
     }),
     detectBot({
       mode: "LIVE", // will block requests. Use "DRY_RUN" to log only
-      allow: 
-        ["CATEGORY:SEARCH_ENGINE"], // Google, Bing, etc
+      allow: ["CATEGORY:SEARCH_ENGINE"], // Google, Bing, etc
         // See the full list at https://arcjet.com/bot-list
       
     }),
